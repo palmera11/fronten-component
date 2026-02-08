@@ -1,0 +1,12 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+>
+  <!-- Dedos muy separados -->
+  <circle cx="16" cy="34" r="10" fill="#111" />
+  <circle cx="50" cy="18" r="10" fill="#111" />
+  <circle cx="84" cy="34" r="10" fill="#111" />
+
+  <!-- Almohadilla central -->
+  <circle cx="50" cy="72" r="22" fill="#111" />
+</svg>

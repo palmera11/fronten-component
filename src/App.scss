@@ -1,0 +1,386 @@
+@use "./styles/variable.scss" as*;
+
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+  color: #ebebeb;
+}
+
+body {
+  background: radial-gradient(circle, #d1bf34 0%, #ede07f 100%);
+  padding-bottom: 140px; // espacio navbar mobile
+}
+
+h1, h2, h3 {
+  font-size: 24px;
+  font-family: sans-serif;
+  margin: 16px;
+  color: #ebebeb;
+}
+
+p {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #818080;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.main-card {
+  margin:  auto;
+  @include glass-card;
+  width: 140px;
+  height: 140px;
+  cursor: pointer;
+  background-image: url(./styles/img/MIAOB.svg);
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.main-card:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+.main-card.bounce {
+  @include bounce;
+}
+
+.secondary-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 8px;
+
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.secondary-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.welcome-card,
+.register-card,
+.login-card {
+  @include glass-card;
+  width:90%;
+  max-width: 900px;
+  padding: 1.5rem;
+}
+
+.user-card {
+  @include glass-card;
+  width: 100%;
+  max-width: 100%;
+  max-height: 140px;
+  overflow: hidden;
+
+  text-align: center;
+  cursor: pointer;
+
+  transition:
+    max-height 0.6s ease,
+    transform 0.4s ease,
+    opacity 0.3s ease;
+}
+
+.user-card.expanded {
+  max-height: 600px;
+}
+
+.logout-btn {
+  width: 80%;
+  height: auto;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.NavBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 10px;
+  gap: 10px;
+
+  display: flex;
+  justify-content: space-around;
+
+  backdrop-filter: blur(12px);
+  z-index: 20;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.NavBar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.NavBar button {
+  flex: 1;
+  height: 48px;
+  font-size: 16px;
+}
+
+.sections-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.section-animated {
+  width: 100%;
+  max-width: 900px;
+
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.35s ease, transform 0.5s ease;
+}
+
+.section-animated.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0px;
+}
+
+.project-card {
+  @include glass-card;
+  padding: 1.2rem;
+}
+
+.skill-item {
+  @include glass-card;
+  font-family: sans-serif;
+  font-size: 32px;
+  padding: 12px;
+  color: #ebebeb;
+}
+
+.contact-card-wrapper {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+}
+.avatar-placeholder{
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  
+  margin: auto;
+  margin-top: 10px;
+  background: url(../public/W2.jpg);
+  background-size: cover;
+  background-size: 200px 200px;
+  background-position: -15px -10px;
+}
+.DivGit{
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  
+  background-size: 100px;
+  background: url(../public/github1.jpg);
+  background-size: 150px;
+  background-position: center;
+  border-radius: 50%;
+  
+  background-repeat: no-repeat;
+}
+.contact-card {
+  width: 240px;
+  height: 320px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  h3{
+    margin:0;
+  }
+}
+
+.contact-card-wrapper:hover .contact-card {
+  transform: rotateY(180deg);
+}
+
+.contact-card-face {
+  @include glass-card;
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.contact-card-face.back {
+  transform: rotateY(180deg);
+}
+.admin-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cardUser{
+  padding: 10px;
+  width: 60%;
+  color: #818080;
+  margin: 10px;
+  @include glass-card;
+}
+button {
+  @include glass-card;
+  width: 100%;
+  height: 50px;
+  margin: 8px 0;
+  cursor: pointer;
+
+  color: #727272;
+  font-family: sans-serif;
+  font-size: 18px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+@media (min-width: 720px) {
+  .welcome-card,
+.register-card,
+.login-card {
+  @include glass-card;
+  width:100%;
+  max-width: 900px;
+  padding: 1.5rem;
+  margin-top: 100px;
+  button{
+    width: 50%;
+  }
+}
+.welcome-card{
+  h1{
+    font-size: 40px;
+  };
+  h2{
+    font-size: 24px;
+  };
+  p{
+    font-size: 30px;
+  };
+}
+.form_grid{
+  display: grid;
+  margin-left:10% ;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  :last-child{
+    margin-left: 20%;
+    grid-column: 1/-1;
+  }
+  .form_Input{
+    font-size: 16px;
+    width: 60%;
+    color: #000;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-left: 2px solid #ebebeb;
+    border-bottom: 2px solid #ebebeb;
+  }
+}
+.form_login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input{
+    width: 300px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #ebebeb;
+    border-left:2px solid #ebebeb;
+  }
+}
+  .user-card{
+    max-width: 150px;
+    
+  }
+  .user-card.expanded{
+    max-width: 100%;
+    transition:
+    max-width 0.6s ease,
+    transform 0.4s ease,
+    opacity 0.3s ease;
+    display: flex;
+    justify-content: space-around;
+    button{
+      width: 100px;
+    }
+  }
+  h1, h2, h3 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .main-card {
+    width: 200px;
+    height: 200px;
+    background-size: 100px;
+  }
+
+  .NavBar {
+    position: relative;
+    bottom: auto;
+    max-width: 900px;
+    margin-top: 10px;
+  }
+
+  .NavBar button {
+    width: 120px;
+    height: 60px;
+    font-size: 20px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    padding: 0px;
+  }
+
+  .contact-card {
+    width: 280px;
+    height: 360px;
+  }
+}

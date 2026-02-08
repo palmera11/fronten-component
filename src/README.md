@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# fronten-component
-=======
 ## 🎨 README.md — Frontend (MIAO Portfolio)
 
 ```md
@@ -137,4 +134,3 @@ http://localhost:5173
 
 admin: 123@test.com    
 passsword: 12345678
->>>>>>> 88f68fd (Initial commit)
